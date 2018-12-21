@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+main()
+{
+    long long int s,e,i,maxn,cnt,max,sq;
+    int j,k,l,t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%lld%lld",&s,&e);
+        if(s>e)
+        {
+            maxn=e;
+            e=s;
+            s=maxn;
+        }
+        max=0;
+        maxn=0;
+        for(i=s;i<=e;i++)
+        {
+            cnt = 0;
+            sq = sqrt(i);
+            for(j=1;j<=sq;j++)
+            {
+               if(i%j==0) cnt++;
+               if(i/j!=j)
+               {
+                   if(i%(i/j)==0) cnt++;
+               }
+            }
+            if(cnt>max)
+            {
+                max=cnt;
+                maxn=i;
+            }
+        }
+        printf("Between %lld and %lld, %lld has a maximum of %lld divisors.\n",s,e,maxn,max);
+    }
+
+
+return 0;
+}
