@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<math.h>
+main()
+{
+    double a,n;
+    while(scanf("%lf%lf",&n,&a) != EOF)
+    {
+        n=1/n;
+        a = pow(a,n);
+        printf("%.0lf\n",a);
+    }
+    return 0;
+
+}
