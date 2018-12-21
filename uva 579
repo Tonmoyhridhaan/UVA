@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+    double h,m,d;
+    char c;
+    while(scanf("%lf:%lf",&h,&m)==2)
+    {
+        if(h+m==0) break;
+        h+=m/60;
+        h=h*30.0;
+        m=m*6.0;
+        d=fabs(h-m);
+        if(d>180)d=360-d;
+        printf("%.3lf\n",d);
+
+    }
+
+
+return 0;
+
+}
