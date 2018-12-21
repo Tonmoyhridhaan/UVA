@@ -1,0 +1,28 @@
+#include<stdio.h>
+main()
+{
+    int n,i,a,c[1000],sum;
+    float cnt,avg;
+    scanf("%d",&n);
+    while(n--)
+    {
+        scanf("%d",&a);
+        sum=0;
+        for(i=0;i<a;i++)
+        {
+            scanf("%d",&c[i]);
+            sum=sum+c[i];
+        }
+        sum=sum/a;
+        for(i=0;i<a;i++)
+        {
+            if(c[i]>sum) cnt++;
+        }
+        avg=(cnt*100)/a;
+        printf("%.3f%%\n",avg);
+        cnt=0;
+    }
+
+
+return 0;
+}
