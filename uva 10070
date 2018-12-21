@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+int fun(char y[],int b)
+{
+    int len,mod,a,i;
+    len= strlen(y);
+    mod=y[0]-48;
+    for(i=0;i<len-1;i++)
+    {
+        a=mod*10+(y[i+1]-48);
+        mod=a%b;
+    }
+    if(mod==0) return 1;
+    else return 0;
+
+}
+main()
+{
+    char y[10000];
+    int fg,fg2;
+    while(scanf("%s",y)==1)
+    {
+        if(fg==1) printf("\n");
+        fg=0;
+        fg2=0;
+        if((fun(y,4)==1 && fun(y,100)==0) || fun(y,400)==1)
+        {
+            printf("This is leap year.\n");
+            fg=1;
+            fg2=1;
+        }
+        if(fun(y,15)==1)
+        {
+            printf("This is huluculu festival year.\n");
+            fg=1;
+        }
+        if(fg2==1 && fun(y,55)==1)
+        {
+            printf("This is bulukulu festival year.\n");
+            fg=1;
+        }
+        if(fg==0 && fg2==0)  printf("This is an ordinary year.\n\n");
+
+    }
+
+
+return 0;
+}
