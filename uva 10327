@@ -1,0 +1,29 @@
+#include<stdio.h>
+main()
+{
+    int n[1000],a[1000],i,j,t,sum,min,fg;
+    while(scanf("%d",&t)!=EOF)
+    {
+        for(i=0;i<t;i++)
+        {
+            scanf("%d",&n[i]);
+        }
+        sum=0;
+        for(j=0;j<t;j++)
+            {
+                min=1000;
+                for(i=0;i<t;i++)
+                {
+                    if(n[i]<min)
+                    {
+                        min=n[i];
+                        fg=i;
+                    }
+                }
+                    n[fg]=1000;
+                    if(fg!=j) sum+=1;
+            }
+            printf("Minimum exchange operations : %d\n",sum);
+    }
+    return 0;
+}
