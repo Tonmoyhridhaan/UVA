@@ -1,0 +1,33 @@
+#include<stdio.h>
+main()
+{
+    int i,j,n,sum,cnt,temp;
+    while(scanf("%d%d",&i,&j)!= EOF){
+    printf("%d %d ",i,j);
+    sum=0;
+    if(i>j){
+        temp=i;
+        i=j;
+        j=temp;
+    }
+
+    while(i<=j)
+    {
+        n=i;
+        cnt=1;
+        while(n!=1)
+        {
+            if(n%2==0) n=n/2;
+            else n=(3*n)+1;
+            cnt++;
+        }
+        if(cnt>sum) sum=cnt;
+        i++;
+
+    }
+    printf("%d\n",sum);
+    }
+
+
+return 0;
+}
