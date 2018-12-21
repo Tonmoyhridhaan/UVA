@@ -1,0 +1,27 @@
+#include<stdio.h>
+main()
+{
+    char c[1000];
+    int t,i,cnt,j;
+    scanf("%d",&t);
+    for(i=1;i<=t;i++)
+    {
+        getchar();
+        scanf("%[^\n]",c);
+        cnt=0;
+        for(j=0;j<strlen(c);j++)
+        {
+            if(c[j]=='a' || c[j]=='d' || c[j]== 'g'|| c[j]=='j'|| c[j]=='m'|| c[j]=='p'|| c[j]=='t'|| c[j]=='w'|| c[j]==' ') cnt++;
+            else if(c[j]=='b'|| c[j]=='e'|| c[j]=='h'|| c[j]=='k'|| c[j]=='n'|| c[j]=='q'|| c[j]=='u'|| c[j]=='x') cnt=cnt+2;
+            else if(c[j]=='c' || c[j]=='f'|| c[j]=='i'|| c[j]=='l'|| c[j]=='o'|| c[j]=='r'|| c[j]=='v'|| c[j]=='y') cnt=cnt+3;
+            else if(c[j]=='s' || c[j]=='z')  cnt=cnt+4;
+        }
+        printf("Case #%d: %d\n",i,cnt);
+
+
+
+    }
+
+
+  return 0;
+}
