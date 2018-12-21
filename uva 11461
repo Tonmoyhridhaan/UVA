@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<math.h>
+main()
+{
+    int a,b,cnt,x;
+    while(scanf("%d%d",&a,&b)==2)
+    {
+        if((a+b)==0) break;
+        cnt=0;
+        for(;a<=b;a++)
+        {
+            x=sqrt(a);
+            if(x*x==a) cnt++;
+        }
+        printf("%d\n",cnt);
+
+
+    }
+    return 0;
+
+
+}
