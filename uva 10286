@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<math.h>
+main()
+{
+    double l,h,pi= acos(-1),x= sin(72*pi/180)/sin(63*pi/180);
+    while(scanf("%lf",&l)==1)
+    {
+        h=x*l;
+        printf("%.10f\n",h);
+    }
+return 0;
+
+}
+
