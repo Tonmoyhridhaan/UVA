@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<math.h>
+main()
+{
+    long long int n,t,i;
+    while(scanf("%lld",&n)==1)
+    {
+        t=0;
+        for(i=1;i<=n;i++)
+        {
+            t=t+(i*i*i);
+        }
+        printf("%lld\n",t);
+    }
+    return 0;
+}
