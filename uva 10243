@@ -1,0 +1,36 @@
+#include<stdio.h>
+main()
+{
+    long long int n,m,i,p,j,sum;
+    int t,k,cnt;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%lld %lld %d",&m,&n,&k);
+        sum =0;
+        cnt=0;
+        for(i=m;i<=n;i++)
+        {
+            if(i%k==0)
+            {
+                p=sqrt(i);
+                for(j=1;j<=p;j++)
+                {
+                    if(i%j==0)
+                    {
+                        sum+=j;
+                        cnt++;
+                        if(i/j!=j)
+                        {
+                            sum+=(i/j);
+                            cnt++;
+                        }
+                    }
+                }
+            }
+        }
+        printf("%d %lld\n",cnt,sum);
+    }
+
+return 0;
+}
