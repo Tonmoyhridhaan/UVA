@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<math.h>
+main()
+{
+    int t,l;
+    double c_a,g,f_a,r,w;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d",&l);
+        w=l*0.6;
+        r=l*0.2;
+        f_a= l*w;
+        c_a= acos(-1)*pow(r,2);
+        g= f_a-c_a;
+        printf("%.2lf %.2lf\n",c_a,g);
+    }
+return 0;
+
+
+}
