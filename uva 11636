@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+main()
+{
+    int a,i=1,j,k,cnt;
+    while(1){
+        scanf("%d",&a);
+        if(a<0 || a>10001) break;
+        j=1;
+        k=0;
+        cnt=-1;
+        if(a==0 || a==1)printf("Case %d: 0\n",i);
+        else{
+        while(j<a)
+        {
+                j=pow(2,k);
+                k++;
+                cnt++;
+        }
+        printf("Case %d: %d\n",i,cnt);
+        }
+        i++;
+    }
+
+return 0;
+}
