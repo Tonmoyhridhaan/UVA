@@ -1,0 +1,21 @@
+#include<stdio.h>
+main()
+{
+    int i,a,n;
+    long int b,c;
+    while(scanf("%d",&n)==1 && (n>=0))
+    {
+        a=0;
+        c=1;
+        for(i=0;i<=n;i++)
+        {
+            c=a+c;
+            a=a+1;
+            b=c;
+        }
+        printf("%ld\n",c);
+    }
+    return 0;
+
+
+}
