@@ -1,0 +1,28 @@
+#include<stdio.h>
+main()
+{
+    int t,n,a[10000],i,j,x,k;
+    scanf("%d",&t);
+    while(t--)
+    {
+        x=0;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+        }
+        for(i=1;i<n;i++)
+            for(j=0;j<i;j++)
+            if(a[j]>a[i])
+               {
+                   x++;
+                   k=a[j];
+                   a[j]=a[i];
+                   a[i]=k;
+               }
+
+    printf("Optimal train swapping takes %d swaps.\n",x);
+    }
+
+  return 0;
+}
