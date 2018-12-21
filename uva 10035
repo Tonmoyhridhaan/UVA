@@ -1,0 +1,39 @@
+#include<stdio.h>
+main()
+{
+    long long int a,b,a1,b1;
+    int i,cnt,fg;
+    while(scanf("%llu%llu",&a,&b)==2)
+    {
+        if (a+b==0) break;
+        cnt=0;
+        fg=0;
+        while(a||b)
+        {
+            a1=a%10;
+            b1=b%10;
+            if(fg==1){
+                    b1++;
+
+            }
+            fg=0;
+
+            if((a1+b1)/10==1){
+                    cnt++;
+                    fg=1;
+            }
+
+            a=a/10;
+            b=b/10;
+        }
+         if(cnt==0)
+            printf("No carry operation.\n");
+        else if(cnt==1)
+            printf("1 carry operation.\n");
+        else
+            printf("%d carry operations.\n", cnt);
+    }
+
+    return 0;
+
+}
