@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+main()
+{
+    char txt[21];
+    int a[125];
+    int i,j,sq,fg,sum;
+    for(i=97,j=1;i<=122;i++,j++)
+    {
+        a[i]=j;
+    }
+    for(i=65;i<=90;i++,j++)
+    {
+        a[i]=j;
+    }
+    while(scanf("%s",txt)!= EOF)
+    {
+        fg=0;
+        sum=0;
+        for(i=0;i<strlen(txt);i++)
+        {
+            sum+=a[txt[i]];
+        }
+        sq= sqrt(sum);
+        for(i=2;i<=sq;i++)
+        {
+            if(sum%i==0)
+            {
+                fg=1;
+                break;
+            }
+        }
+        if(fg==0) printf("It is a prime word.\n");
+        else printf("It is not a prime word.\n");
+    }
+    return 0;
+}
