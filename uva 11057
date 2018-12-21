@@ -1,0 +1,49 @@
+#include<stdio.h>
+main()
+{
+    long long int arr[10000],p,x,y,z,i,q,j;
+    int n,k,l;
+    while(scanf("%d",&n)!=EOF)
+    {
+        for(k=0;k<n;k++)
+        {
+            scanf("%lld",&arr[k]);
+        }
+        scanf("%lld",&q);
+        p=q;
+        z=q;
+        for(k=0;k<n;k++)
+        {
+            for(l=0;l<n;l++)
+            {
+                if(l==k) continue;
+                if((arr[k]+arr[l])==q)
+                {
+                    if(arr[k]>=arr[l]){
+                        i=arr[k];
+                        j=arr[l];
+                    }
+                    else {
+                        i=arr[l];
+                        j=arr[k];
+                    }
+                    z=i-j;
+                    if(z<p)
+                    {
+                        p=z;
+                        x=i;
+                        y=j;
+                    }
+
+
+                }
+            }
+
+        }
+        printf("Peter should buy books whose prices are %lld and %lld.\n\n",y,x);
+    }
+return 0;
+}
+
+
+
