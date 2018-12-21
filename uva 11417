@@ -1,0 +1,27 @@
+#include<stdio.h>
+main()
+{
+    int g;
+    int i,j,n,a,b,temp;
+    while(scanf("%d",&n)==1)
+    {
+        if(n==0) break;
+        g=0;
+        for(i=1;i<n;i++)
+            for(j=i+1;j<=n;j++)
+        {
+            a=i;
+            b=j;
+            while((b%a)!=0)
+            {
+                temp=b%a;
+                b=a;
+                a=temp;
+            }
+            g=g+a;
+        }
+        printf("%d\n",g);
+    }
+
+return 0;
+}
