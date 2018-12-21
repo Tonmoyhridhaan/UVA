@@ -1,0 +1,21 @@
+#include<stdio.h>
+main()
+{
+    int t,max,min,a,s,i;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d",&s);
+        max=0;
+        min=99;
+        while(s--)
+        {
+            scanf("%d",&a);
+            if(a>max) max=a;
+            if(a<min) min=a;
+        }
+        printf("%d\n",(max-min)*2);
+    }
+    return 0;
+
+}
