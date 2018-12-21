@@ -1,0 +1,34 @@
+#include<stdio.h>
+main()
+{
+    long long int a,n,p;
+    int cnt,t,k;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%lld",&a);
+        p=a;
+        cnt=0;
+       while(p!=n)
+        {
+            cnt++;
+            n=0;
+            while(a!=0)
+            {
+                k=a%10;
+                n+=k;
+                n*=10;
+                a=a/10;
+            }
+        n=n/10;
+        if(n==p) break;
+        else{ p=p+n;
+              a=p;
+            }
+
+        }
+        printf("%d %lld\n",cnt-1,n);
+    }
+
+return 0;
+}
