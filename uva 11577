@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    int t,i,j,len, mx,fg,fg2,x;
+    char c[201];
+    scanf("%d",&t);
+    while(t--)
+    {
+        getchar();
+        int arr[128]={0};
+        fg=0;
+        scanf("%[^\n]",c);
+        len= strlen(c);
+        for(i=0;i<len;i++)
+        {
+            if((c[i]>='A' && c[i]<='Z') || (c[i]>='a' && c[i]<='z'))arr[(int) tolower(c[i])]++;
+        }
+        fg2=0;
+        x=-1;
+        while(fg==0)
+        {
+            j=-1;
+            mx=0;
+            for(i=90;i<128;i++)
+            {
+                if(arr[i]>mx)
+                {
+                    mx=arr[i];
+                    j=i;
+                }
+            }
+            if(fg2==0)
+            {
+                x=mx;
+                fg2=1;
+            }
+            arr[j]=-1;
+            if(mx!=x) break;
+            printf("%c",j);
+
+        }
+        printf("\n");
+
+    }
+
+return 0;
+}
