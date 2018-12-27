@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    string s;
+    int t,i,cnt,fg;
+    cin>>t;
+    getchar();
+    while(t--)
+    {
+        cnt=0;
+        fg=0;
+        int arr[95]= {0};
+        getline(cin,s);
+        for(i=0; i<s.size(); i++)
+        {
+            arr[s[i]]++;
+        }
+        while(fg==0)
+        {
+            for(i=65; i<91; i++)
+            {
+                if(arr[77]>=1 && arr[65]>=3 && arr[82]>=2 && arr[71] >= 1 && arr[73] >= 1 && arr[84] >= 1)
+                {
+                    cnt++;
+                    arr[77]--;
+                    arr[65]-=3;
+                    arr[82]-=2;
+                    arr[71]--;
+                    arr[73]--;
+                    arr[84]--;
+                }
+                else fg=1;
+
+            }
+        }
+        cout<<cnt<<"\n";
+    }
+
+    return 0;
+}
