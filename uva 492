@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    int i,j,k;
+    while(getline(cin,s))
+    {
+        s+=' ';
+        for(i=0; i<s.size()-1; i++)
+        {
+            if(toupper(s[i]) == 'A' || toupper(s[i]) == 'E' || toupper(s[i]) == 'I' || toupper(s[i]) == 'O' || toupper(s[i]) == 'U')
+            {
+                for(j=i; j<s.size(); j++)
+                {
+
+                    if(isalpha(s[j+1])!=0)
+                        cout<<s[j];
+                    else if(isalpha(s[j+1])==0)
+                       {
+                            printf("%cay",s[j]);
+                            break;
+                       }
+
+                }
+                i=j+1;
+                cout<<s[i];
+            }
+            else if(isalpha(s[i]))
+            {
+                for(j=i;j<s.size();j++)
+                {
+                    if(isalpha(s[j+1])!=0) cout<<s[j+1];
+                    else if(isalpha(s[j+1])==0)
+                    {
+                        printf("%cay",s[i]);
+                        break;
+                    }
+                }
+                i=j+1;
+                cout<<s[i];
+            }
+            else {
+                    cout<<s[i];
+                    continue;
+                 }
+        }
+            cout<<"\n";
+    }
+
+    return 0;
+}
