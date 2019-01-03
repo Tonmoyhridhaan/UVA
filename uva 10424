@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    int arr[100];
+    int i,j,k,l,sum1,sum2;
+    float per,x,y;
+    string s1,s2;
+    j=1;
+    for(i=65;i<=90;i++)
+    {
+        arr[i]=j;
+        j++;
+    }
+    while(getline(cin,s1))
+    {
+        getline(cin,s2);
+        sum1=0;
+        sum2=0;
+        for(i=0;i<s1.size();i++)
+        {
+            if(isalpha(s1[i])!=0)
+            sum1+=arr[toupper(s1[i])];
+        }
+        for(i=0;i<s2.size();i++)
+        {
+            if(isalpha(s2[i])!=0)
+            sum2+= arr[toupper(s2[i])];
+        }
+
+        while(sum1%10!=sum1)
+        {
+            k=sum1/10;
+            l=sum1%10;
+            sum1=k+l;
+        }
+        while(sum2%10!=sum2)
+        {
+            k=sum2/10;
+            l=sum2%10;
+            sum2= k+l;
+        }
+        x=sum1;
+        y=sum2;
+        if(x>=y)
+        {
+            per = (y/x)*100;
+        }
+        else
+        {
+            per = (x/y)*100;
+        }
+        printf("%.2f %%\n",per);
+    }
+    return 0;
+}
