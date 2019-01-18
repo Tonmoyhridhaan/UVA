@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    long long int n,b;
+    vector<int> s;
+    int cnt,i,j;
+    while(scanf("%lld",&n)!=EOF)
+    {
+        if(n==0) break;
+        cnt=0;
+        cout<<"The parity of ";
+        for(i=0;n!=0;i++)
+        {
+            b=n%2;
+            if(b==1)
+            cnt++;
+            n=n/2;
+            s.push_back(b);
+        }
+        reverse(s.begin(),s.end());
+        for(i=0;i<s.size();i++)
+        {
+            cout<<s[i];
+        }
+        printf(" is %d (mod 2).\n",cnt);
+        s.clear();
+    }
+return 0;
+}
