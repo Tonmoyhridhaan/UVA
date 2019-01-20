@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    string s;
+    int i;
+    while(getline(cin,s))
+    {
+        for(i=0;i<s.size();i++)
+        {
+            if(s[i]==' ') cout<<' ';
+            else if(tolower(s[i])==']') cout<<'p';
+            else if(tolower(s[i])=='[') cout<<'o';
+            else if(tolower(s[i])=='p') cout<<'i';
+            else if(tolower(s[i])=='o') cout<<'u';
+            else if(tolower(s[i])=='i') cout<<'y';
+            else if(tolower(s[i])=='u') cout<<'t';
+            else if(tolower(s[i])=='y') cout<<'r';
+            else if(tolower(s[i])=='t') cout<<'e';
+            else if(tolower(s[i])=='r') cout<<'w';
+            else if(tolower(s[i])=='e') cout<<'q';
+            else if(tolower(s[i])==39) cout<<'l';
+            else if(tolower(s[i])==';') cout<<'k';
+            else if(tolower(s[i])=='l') cout<<'j';
+            else if(tolower(s[i])=='k') cout<<'h';
+            else if(tolower(s[i])=='j') cout<<'g';
+            else if(tolower(s[i])=='h') cout<<'f';
+            else if(tolower(s[i])=='g') cout<<'d';
+            else if(tolower(s[i])=='f') cout<<'s';
+            else if(tolower(s[i])=='d') cout<<'a';
+            else if(tolower(s[i])==92) cout<<'[';
+            else if(tolower(s[i])=='/') cout<<',';
+            else if(tolower(s[i])=='.') cout<<'m';
+            else if(tolower(s[i])==',') cout<<'n';
+            else if(tolower(s[i])=='m') cout<<'b';
+            else if(tolower(s[i])=='n') cout<<'v';
+            else if(tolower(s[i])=='b') cout<<'c';
+            else if(tolower(s[i])=='v') cout<<'x';
+            else if(tolower(s[i])=='c') cout<<'z';
+
+        }
+        cout<<"\n";
+    }
+
+ return 0;
+}
