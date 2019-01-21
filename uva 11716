@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    string s;
+    int n,i,j,sq;
+    cin>>n;
+    getchar();
+    while(n--)
+    {
+        getline(cin,s);
+        sq=sqrt(s.size());
+        if(sq*sq!=s.size()) printf("INVALID");
+        else
+        {
+            for(i=0;i<sq;i++)
+            {
+                cout<<s[i];
+                for(j=sq+i;j<s.size();j+=sq)
+                {
+                    cout<<s[j];
+                }
+
+            }
+        }
+        cout<<"\n";
+    }
+    return 0;
+
+}
+
