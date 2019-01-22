@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    string s;
+    int i,j,cnt,k,str;
+    while(getline(cin,s))
+    {
+        for(i=0;i<s.size();i++)
+        {
+            if(s[i]==' ')
+            {
+                str=i;
+                break;
+            }
+        }
+        cnt=0;
+        k=str;
+        for(i=0;i<str;i++)
+        {
+            for(j=k+1;j<s.size();j++)
+            {
+                if(s[i]==s[j])
+                {
+                    k=j;
+                    cnt++;
+                    break;
+                }
+            }
+           if(cnt!=i+1) break;
+        }
+        if(cnt==str) cout<<"Yes"<<"\n";
+        else cout<<"No"<<"\n";
+
+    }
+    return 0;
+}
