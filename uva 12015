@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    char s[12][100];
+    int i,j,t,mx,n[12];
+    cin>>t;
+    for(j=1;j<=t;j++)
+    {
+
+        getchar();
+        mx=0;
+        for(i=0;i<10;i++)
+        {
+            scanf("%s",s[i]);
+            cin>>n[i];
+            if(n[i]>mx) mx=n[i];
+        }
+        printf("Case #%d:\n",j);
+        for(i=0;i<10;i++)
+        {
+            if(n[i]==mx)
+            {
+                cout<<s[i];
+                cout<<"\n";
+            }
+
+        }
+    }
+    return 0;
+
+}
