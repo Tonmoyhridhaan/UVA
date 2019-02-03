@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    string s1;
+    vector<char> s;
+    int i,r;
+    while(cin>>s1)
+    {
+        if(s1[0]=='0'&& s1[1]=='\0') break;
+        r=0;
+        for(i=0;i<s1.size();i++)
+        {
+            if(s1[i]>='0' && s1[i]<='9')
+            {
+                s.push_back(s1[i]);
+            }
+        }
+        for(i=0;i<s.size();i++)
+        {
+            {
+                r = r*10 + s[i]-48;
+                r = r % 11;
+            }
+        }
+        if(r==0)
+        {
+            for(i=0;i<s.size();i++)
+            {
+                cout<<s[i];
+            }
+            printf(" is a multiple of 11.\n");
+        }
+        else
+        {
+            for(i=0;i<s.size();i++)
+            {
+                cout<<s[i];
+            }
+            printf(" is not a multiple of 11.\n");
+        }
+     s.clear();
+    }
+    return 0;
+}
