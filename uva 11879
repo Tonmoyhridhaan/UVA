@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    string s;
+    int i,j,r;
+    while(cin>>s)
+    {
+        r=0;
+        if (s[0]=='0') break;
+        for(i=0;i<s.size();i++)
+        {
+            r = r * 10 + s[i]-48;
+            r = r % 17;
+        }
+        if(r==0) printf("1\n");
+        else printf("0\n");
+    }
+    return 0;
+}
