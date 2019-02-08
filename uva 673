@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    string s;
+    int t,i,fg;
+    cin>>t;
+    getchar();
+    while(t--)
+    {
+        getline(cin,s);
+        stack<char>st;
+        fg=0;
+        if(s.size()%2!=0)
+        {
+            printf("No\n");
+            continue;
+        }
+        for(i=0;i<s.size();i++)
+        {
+               if(s[i]=='(' || s[i]=='[')
+               {
+                   st.push(s[i]);
+               }
+               else if(!st.empty() && st.top()=='(' && s[i]==')') st.pop();
+               else if(!st.empty() && st.top()=='[' && s[i]==']') st.pop();
+               else
+               {
+                   fg=1;
+                   break;
+               }
+        }
+
+        if(st.empty() && fg==0) printf("Yes\n");
+        else printf("No\n");
+        s.clear();
+    }
+
+    return 0;
+}
