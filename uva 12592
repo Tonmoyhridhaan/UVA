@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    int n,q,i,j;
+    string s1[21],s2[21],s3;
+    cin>>n;
+    getchar();
+    for(i=0;i<n;i++)
+    {
+        getline(cin,s1[i]);
+        getline(cin,s2[i]);
+    }
+    cin>>q;
+    getchar();
+    for(i=0;i<q;i++)
+    {
+        getline(cin,s3);
+        for(j=0;j<n;j++)
+        {
+            if(s3==s1[j])
+            {
+                cout<<s2[j];
+                break;
+            }
+        }
+        cout<<"\n";
+    }
+
+return 0;
+}
