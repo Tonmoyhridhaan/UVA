@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,m,i,k,x,y;
+    while(scanf("%d",&k)!=EOF)
+    {
+        if(k==0) break;
+        cin>>m>>n;
+        while(k--)
+        {
+            cin>>x>>y;
+            if(x==m || y==n) cout<<"divisa";
+            else if(x>m && y>n) cout<<"NE";
+            else if(x>m && y<n) cout<<"SE";
+            else if(x<m && y<n) cout<<"SO";
+            else if(x<m && y>n) cout<<"NO";
+            cout<<"\n";
+        }
+
+
+    }
+    return 0;
+
+}
