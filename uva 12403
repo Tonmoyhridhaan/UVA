@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,d;
+    long sm;
+    string s;
+    cin>>t;
+    sm=0;
+    while(t--)
+    {
+        cin>>s;
+        if(s=="donate")
+        {
+            cin>>d;
+            sm+=d;
+        }
+        else if(s=="report")
+        {
+            cout<<sm<<endl;
+        }
+    }
+return 0;
+}
