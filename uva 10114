@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int month, nom, i, j, m, k;
+    double dp,loan,loantmp,tmp,mp;
+    while(scanf("%d",&month))
+    {
+        if(month<0) break;
+        float a[month+1];
+        cin>>dp>>loan>>nom;
+        loantmp = loan+dp;
+        cin>>m>>tmp;
+        k=0;
+        for(i=0;i<nom;i++)
+        {
+           if (i<nom-1 )cin>>m;
+           else m=month;
+           for(j=k;j<m;j++)
+           {
+               a[j]=tmp;
+           }
+           k=j;
+           if (i<nom-1 )cin>>tmp;
+        }
+        mp = loan/month;
+        for(i=0;i<month;i++)
+        {
+             loantmp = loantmp - (loantmp*a[i]);
+             if(loan<=loantmp) break;
+             else loan = loan - mp;
+        }
+
+        cout<<i<<" month";
+        if(i!=1)cout<<"s";
+        cout<<endl;
+
+    }
+return 0;
+}
