@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,w,y1,y2,r,fg,k;
+    cin>>t;
+    while(t--)
+    {
+        fg=0;
+        cin>>w;
+        cin>>y1>>y2;
+        k = y1-y2;
+        w--;
+        while(w--)
+        {
+            cin>>y1>>y2;
+            r = y1-y2;
+            if(r!=k)
+            {
+                fg=1;
+            }
+        }
+        if(fg==0) cout<<"yes"<<endl;
+        else cout<<"no"<<endl;
+        if(t)
+        {
+            cout<<endl;
+        }
+    }
+return 0;
+}
