@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int pos, x1,x2,x3,res,tmp;
+    while(scanf("%d",&pos)==1)
+    {
+        cin>>x1>>x2>>x3;
+        if(pos == 0 && x1 == 0 && x2 == 0 && x3 == 0) break;
+
+        res = 1080;
+
+        if(x1>pos)
+        {
+            tmp = 40+pos;
+            res += (tmp-x1) * 9;
+        }
+        else if(pos>x1)
+        {
+            res += (pos-x1)*9;
+        }
+
+        if(x2>x1)
+        {
+            res += (x2-x1)*9;
+        }
+        else if(x1>x2)
+        {
+            tmp = 40+x2;
+            res += (tmp-x1) * 9;
+        }
+        if(x2>x3)
+        {
+            res += (x2-x3)*9;
+        }
+        else if(x3>x2)
+        {
+            tmp = 40+x2;
+            res += (tmp-x3)*9;
+        }
+        cout<<res<<endl;
+
+    }
+return 0;
+}
