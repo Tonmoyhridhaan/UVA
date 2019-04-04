@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,b,h,w,i,j;
+    while(scanf("%d",&n)==1)
+    {
+        cin>>b>>h>>w;
+
+        int arr[h][w],p[h],sum,res = b+1;
+        bool fg = true;
+        for(i = 0 ; i < h ; i++)
+        {
+            cin>>p[i];
+            for(j = 0 ; j < w ; j++)
+            {
+                cin>>arr[i][j];
+            }
+        }
+        for(i = 0 ; i < h ; i++)
+        {
+            for(j = 0 ; j < w ; j++)
+            {
+                if(arr[i][j]>0)
+                {
+                    continue;
+                }
+                else
+                {
+                    fg = false;
+                    break;
+                }
+
+            }
+
+           if(fg) sum = p[i]*n;
+           fg = true;
+           if(sum<res) res = sum;
+        }
+
+
+        if(res>-1 && res<=b) cout<<res<<endl;
+        else cout<<"stay home"<<endl;
+
+    }
+
+}
