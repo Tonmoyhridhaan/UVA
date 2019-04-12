@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int b,n;
+    while(scanf("%d",&b))
+    {
+        cin>>n;
+        if(b==0 && n==0) break;
+        int bmr[b],d,c,v;
+        int i,j;
+        for(i=0;i<b;i++)
+        {
+            cin>>bmr[i];
+        }
+        for(i=0;i<n;i++)
+        {
+            cin>>d>>c>>v;
+            bmr[d-1] -= v;
+            bmr[c-1] += v;
+        }
+        bool fg = true;
+        for(i=0;i<b;i++)
+        {
+            if(bmr[i]<0)
+            {
+                fg = false;
+                break;
+            }
+        }
+        if(fg) cout<<"S"<<endl;
+        else cout<<"N"<<endl;
+    }
+
+return 0;
+}
