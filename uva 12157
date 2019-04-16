@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i;
+    cin>>t;
+    for(i=1;i<=t;i++)
+    {
+        int n, mile=0,juice=0,m,j,k,cnt=0;
+        cin>>k;
+        while(k--)
+        {
+            cin>>n;
+
+            mile += (n/30)*10 + 10;
+            juice += (n/60)*15 + 15;
+
+        }
+        if(mile<juice) printf("Case %d: Mile %d",i,mile);
+        else if(juice<mile) printf("Case %d: Juice %d",i,juice);
+        else printf("Case %d: Mile Juice %d",i,mile);
+        if(i<=t) cout<<endl;
+    }
+return 0;
+}
