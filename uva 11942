@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,i,a,b;
+    bool as,des;
+    cin>>n;
+
+    cout<<"Lumberjacks:"<<endl;
+    while(n--)
+    {
+        as = des = false;
+        cin>>a;
+        for(i=0;i<9;i++)
+        {
+            cin>>b;
+            if(a<b) as = true;
+            else des = true;
+            a = b;
+        }
+
+        if(as && des) cout<<"Unordered"<<endl;
+        else cout<<"Ordered"<<endl;
+
+    }
+return 0;
+}
