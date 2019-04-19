@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a,b,f,w;
+    while(scanf("%d%d",&a,&b)==2)
+    {
+        if(a<0 || b<0) break;
+        if(a==b)
+        {
+            cout<<"0"<<endl;
+            continue;
+        }
+        if(b>a)
+        {
+            f = b-a;
+            w = (a+100) - b;
+            if(f>w) cout<<w<<endl;
+            else cout<<f<<endl;
+        }
+        else if(a>b)
+        {
+            f = a-b;
+            w = (100-a) + b;
+            if(f>w) cout<<w<<endl;
+            else cout<<f<<endl;
+        }
+
+    }
+return 0;
+
+}
