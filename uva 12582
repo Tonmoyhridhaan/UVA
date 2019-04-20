@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i,j;
+    stack<char>stk;
+    string s;
+    cin>>t;
+    for(i=1;i<=t;i++)
+    {
+        cin>>s;
+        int a[28]={0};
+
+        for(j=0;j<s.size();j++)
+        {
+            if(stk.empty() || stk.top()!=s[j])
+            {
+                stk.push(s[j]);
+                a[s[j]-'A']++;
+            }
+            else
+            {
+                stk.pop();
+                if(!stk.empty()&& j<s.size()-2) a[stk.top()-'A']++;
+            }
+        }
+        printf("Case %d\n",i);
+        for(j=0;j<26;j++)
+        {
+            if(a[j]>0)
+            {
+                printf("%c = %d\n",j+'A',a[j]);
+            }
+        }
+        s.clear();
+    }
+    return 0;
+}
