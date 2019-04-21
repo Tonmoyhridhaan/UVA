@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,m,i,d,x,j;
+    vector<int>v;
+    int arr[5];
+    while(scanf("%d%d",&m,&n)==2)
+    {
+        int cnt = 0,c=0;
+        bool fg;
+        for(i=m;i<=n;i++)
+        {
+            x=i;
+            fg = true;
+            while(x!=0)
+            {
+                v.push_back(x%10);
+                x = x/10;
+                c++;
+            }
+            sort(v.begin(),v.end());
+
+            for(j=0;j<v.size()-1;j++)
+            {
+                if(v[j]==v[j+1])
+                {
+                    fg = false;
+                    break;
+                }
+            }
+            if(fg) cnt++;
+            v.clear();
+
+        }
+        cout<<cnt<<endl;
+    }
+    return 0;
+}
