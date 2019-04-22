@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,i;
+    map<string,int>m;
+    bool fg = false;
+    while(scanf("%d",&n)==1)
+    {
+        string s[n];
+
+        if(fg) cout<<endl;
+
+        for(i=0;i<n;i++)
+        {
+            cin>>s[i];
+            m[s[i]] = 0;
+        }
+
+        string st,st2;
+        int money, nop,j,tmp;
+
+        for(i=0;i<n;i++)
+        {
+            cin>>st>>money>>nop;
+            for(j=0;j<nop;j++)
+            {
+                cin>>st2;
+                m[st2]+= (money/nop);
+            }
+            if(nop>0)
+            {
+                m[st]-= money;
+                m[st] += money%nop;
+            }
+        }
+
+        for(i=0;i<n;i++)
+        {
+            cout<<s[i]<<" "<<m[s[i]]<<endl;
+        }
+        fg = true;
+
+    }
+return 0;
+
+}
+
