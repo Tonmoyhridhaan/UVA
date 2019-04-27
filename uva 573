@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int h,d;
+    double u,f,x,k;
+
+   while(scanf("%d",&h)==1)
+    {
+        x = 0;
+        if(h==0) break;
+        cin>>u>>d>>f;
+        k=u;
+        x += u;
+        if(x<=h) x -= d;
+        u = u - k*(f/100.0);
+
+        int cnt = 1;
+
+        while(x>=0 && x<=h)
+        {
+            x += u;
+            if(x<=h) x -= d;
+            u = u - k*(f/100);
+            if(u<0) u = 0;
+            cnt++;
+        }
+
+
+        if(x<0) printf("failure on day %d\n",cnt);
+        else printf("success on day %d\n",cnt);
+    }
+return 0;
+
+}
