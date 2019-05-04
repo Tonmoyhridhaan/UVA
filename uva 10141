@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,p,i,t=0;
+    string s;
+    while(scanf("%d%d",&n,&p)==2)
+    {
+        if(n == 0 && p == 0) break;
+        t++;
+        cin.ignore();
+        for(i=0;i<n;i++)
+        {
+            getline(cin,s);
+        }
+
+        int r,k,j,rm;
+        double price,d;
+        string name;
+
+        getline(cin,s);
+        cin>>d>>r;
+
+        name = s;
+        price = d;
+        rm = r;
+        cin.ignore();
+        for(j=0;j<r;j++)
+            {
+                getline(cin,s);
+            }
+
+        for(i=0;i<p-1;i++)
+        {
+
+
+            getline(cin,s);
+            cin>>d>>r;
+            if(r>rm)
+            {
+                name = s;
+                price = d;
+                rm = r;
+            }
+            else if(r==rm && d<price)
+            {
+                name  = s;
+                price = d;
+                rm = r;
+            }
+            cin.ignore();
+            for(j=0;j<r;j++)
+            {
+                getline(cin,s);
+            }
+        }
+        if(t>1) cout<<endl;
+        cout<<"RFP #"<<t<<endl;
+        cout<<name<<endl;
+
+
+
+    }
+return 0;
+
+}
