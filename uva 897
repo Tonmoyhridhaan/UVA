@@ -1,0 +1,105 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define pb push_back
+#define i64 long long int
+#define sf scanf
+#define pf printf
+
+bool check(int N , int pos)
+{
+    return (bool)(N&(1<<pos));
+}
+
+int Set(int N , int pos)
+{
+    return N = N | (1<<pos);
+}
+
+int N = 1000;
+
+int status[1000/32] = {0};
+
+void sieve()
+{
+    int i,j,sqrtN;
+    sqrtN = sqrt(N);
+    for(i = 4 ; i<=N ; i+=2) status[i/32] = Set(status[i/32],i%32);
+    for( i = 3 ; i <= sqrtN ; i+=2)
+    {
+        if(check(status[i/32],i%32) == 0)
+           {
+               for(j = i*i ; j<=N ; j += i)
+               {
+                    status[j/32] = Set(status[j/32],j%32);
+               }
+           }
+    }
+
+}
+int main()
+{
+    Set(0,1);
+    sieve();
+    int n,k,i;
+    vector<int>v;
+    while(sf("%d",&n) == 1)
+    {
+        if(n == 0) break;
+        if(n>990)
+        {
+            puts("0");
+            continue;
+        }
+        else if(n == 7 || n == 8 || n == 9 || n == 97 || n == 98 || n==99)
+        {
+            puts("0");
+            continue;
+        }
+        n++;
+        k = n;
+        bool fg = false,fg2 = true;
+        while(!fg)
+        {
+            n = k;
+            if(check(status[n/32],n%32) == 0)
+            {
+                v.clear();
+
+                while(n!= 0)
+                {
+
+                    v.pb(n%10);
+                    n = n/10;
+
+                }
+
+                fg2 = false;
+                int sz = v.size();
+                sort(v.begin(),v.end());
+                do
+                {
+                    int sum = 0;
+                    for(i = 0 ; i<sz ; i++)
+                    {
+                        sum += v[i];
+                        sum *= 10;
+
+                    }
+                    sum /= 10;
+                    if(check(status[sum/32],sum%32) == 1)
+                    {
+                        fg2 = true;
+                        break;
+                    }
+                }while(next_permutation(v.begin(),v.end()));
+            }
+            if(fg2 == false) break;
+            else k++;
+
+        }
+
+        cout<<k<<"\n";
+    }
+
+return 0;
+}
