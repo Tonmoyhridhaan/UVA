@@ -1,0 +1,96 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define sf scanf
+#define pf printf
+#define pb push_back
+#define i64 long long int
+bool check(int N , int pos)
+{
+    return (bool)(N&(1<<pos));
+}
+
+int Set(int N , int pos)
+{
+    return N = N | (1<<pos);
+}
+
+int N =  10000005;
+
+int status[ 10000005/32] = {0};
+
+void sieve()
+{
+    int i,j,sqrtN;
+    sqrtN = sqrt(N);
+    for(i = 4 ; i<=N ; i+=2) status[i/32] = Set(status[i/32],i%32);
+    for( i = 3 ; i <= sqrtN ; i+=2)
+    {
+        if(check(status[i/32],i%32) == 0)
+           {
+               for(j = i*i ; j<=N ; j += i)
+                {
+                   status[j/32] = Set(status[j/32],j%32);
+                }
+           }
+    }
+
+}
+int main()
+{
+    Set(0,1);
+    sieve();
+    int T,u,l;
+    int i;
+
+    vector<i64>v;
+    cin>>T;
+    while(T--)
+    {
+        int arr[1000] = {0};
+        sf("%d%d",&l,&u);
+        if(l == 0 || l == 1) l = 2;
+        else if(check(l,0) == 0 && l!=2) l++;
+        i = 0;
+        for(; l<=u ; l+=2)
+        {
+            if(check(status[l/32],l%32) == 0)
+            {
+                v.pb(l);
+                i++;
+            }
+            if(l == 2) l--;
+        }
+        i64 sz = v.size();
+        for(i = 0 ; i<sz-1 ; i++)
+        {
+            arr[v[i+1]-v[i]]++;
+
+        }
+
+        int mx = 0,loc;
+        bool fg = false;
+
+        for(i = 1 ; i<1000 ; i++)
+        {
+
+            if(arr[i]>mx)
+            {
+                mx = arr[i];
+                loc = i;
+                fg = false;
+            }
+            else if(arr[i] == mx && mx>0)
+            {
+                fg = true;
+            }
+        }
+        if( sz <= 1) pf("No jumping champion");
+        else if(fg) pf("No jumping champion");
+        else if(!fg) pf("The jumping champion is %d",loc);
+
+        cout<<"\n";
+        v.clear();
+    }
+
+return 0;
+}
