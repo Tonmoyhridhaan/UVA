@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define sf scanf
+#define pf printf
+#define pb push_back
+#define i64 long long int
+const double pi = 2*acos(0) ;
+
+bool status[10000002] = {0};
+int prime()
+{
+    int N = 10000000;
+    int sq = sqrt(N);
+
+    for(int i = 4 ; i<=N ; i+=2) status[i] = 1;
+    for(int i = 3 ; i<=sq ; i+=2)
+    {
+        if(status[i] == 0)
+        {
+            for(int j = i*i ; j<=N ; j+=i)
+            {
+                status[j] = 1;
+            }
+        }
+
+    }
+    status[1] = 1;
+    return 0;
+}
+int main()
+{
+    prime();
+
+    int n,a1,a2,a3,a4,i;
+    while(scanf("%d",&n) == 1)
+    {
+        bool fg = false;
+        int s = n;
+        if(n<8) pf("Impossible.\n");
+        else
+        {
+            if(n%2 == 0 )
+            {
+                a1=a2=2;
+            }
+            else
+            {
+                a1 = 2;
+                a2 = 3;
+            }
+
+            n = n - (a1+a2);
+            if(status[n-2] == 0)
+            {
+                a3 = 2;
+                a4 = n-2;
+                fg = true;
+            }
+            else
+            {
+                for(i = 3 ; i<=s ; i++)
+                {
+                    if(status[i] == 0 && status[n-i] == 0)
+                    {
+                        a3 = i;
+                        a4 = n-i;
+                        fg = true;
+                        break;
+                    }
+                }
+            }
+            if(fg) pf("%d %d %d %d\n",a1,a2,a3,a4);
+            else pf("Impossible.\n");
+        }
+    }
+    return 0;
+}
+
