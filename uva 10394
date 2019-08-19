@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define sf scanf
+#define pf printf
+#define pb push_back
+#define i64 long long int
+#define mp make_pair
+const double pi = 2*acos(0) ;
+#define mx 20000002
+
+bool status[mx] = {0};
+int prime()
+{
+    int N = 20000000;
+    int sq = sqrt(N);
+
+    for(int i = 4 ; i<=N ; i+=2) status[i] = 1;
+    for(int i = 3 ; i<=sq ; i+=2)
+    {
+        if(status[i] == 0)
+        {
+            for(int j = i*i ; j<=N ; j+=i)
+            {
+                status[j] = 1;
+            }
+        }
+
+    }
+    status[1] = 1;
+return 0;
+
+}
+int main()
+{
+    prime();
+    vector<pair<int , int> > pv;
+    pv.pb(mp(0,0));
+    pv.pb(mp(3,5));
+    int i,n;
+    for(i = 5 ; i<=mx-2 ; i+=2)
+    {
+        if(status[i] == 0 && status[i+2] == 0)
+        {
+            pv.pb(mp(i,i+2));
+        }
+    }
+
+    while(scanf("%d",&n) == 1)
+    {
+        pf("(%d, %d)\n",pv[n].first,pv[n].second);
+    }
+
+
+return 0;
+}
+
+
