@@ -1,0 +1,89 @@
+ #include<bits/stdc++.h>
+using namespace std;
+#define sf scanf
+#define pf printf
+#define fi ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+#define pb push_back
+#define all(a) a.begin(),a.end()
+#define i64 long long int
+const double pi = 2*acos(0);
+const int maxn = (i64)2e5+5;
+
+int b[1005][1005];
+int c[1005][1005];
+int cnt;
+string s1,s2;
+void print(int i,int j)
+{
+    if(i == -1 || j == -1) return;
+    if(b[i][j] == 1)
+    {
+        print(i-1,j-1);
+        //printf("%c",s1[i]);
+        cnt++;
+    }
+    else if(b[i][j] == 2)
+    {
+        print(i-1,j);
+    }
+    else print(i,j-1);
+
+}
+
+void lcs(int m,int n)
+{
+    int i,j;
+    for(i = 1 ; i<=m ; i++)
+    {
+        for(j = 1 ; j<=n ; j++)
+        {
+            if(s1[i-1] == s2[j-1])
+            {
+                c[i][j] = c[i-1][j-1]+1;
+                b[i-1][j-1] = 1;
+            }
+            else if( c[i-1][j] >= c[i][j-1])
+            {
+                c[i][j] = c[i-1][j];
+                b[i-1][j-1] = 2;
+            }
+            else
+            {
+                c[i][j] = c[i][j-1];
+
+            }
+        }
+    }
+}
+void Set0(int m,int n)
+{
+    int i,j;
+    for(i = 0 ; i<=m ; i++)
+        for(j = 0 ; j<=n ; j++)
+        {
+            b[i][j] = 0;
+            c[i][j] = 0;
+        }
+        cnt = 0;
+}
+int main()
+{
+
+    while(getline(cin,s1) && getline(cin,s2))
+    {
+        int m = s1.size(),n = s2.size();
+        if(m<n)
+        {
+            s1.swap(s2);
+            swap(m,n);
+        }
+        lcs(m,n);
+        int i,j;
+        print(m-1,n-1);
+        cout<<cnt<<"\n";
+        Set0(m,n);
+    }
+return 0;
+}
+
+
