@@ -1,0 +1,121 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC target("avx,avx2,fma")
+#pragma GCC optimization ("unroll-loops")
+
+#include<bits/stdc++.h>
+using namespace std;
+#define pb push_back
+#define pii pair<int,int>
+#define pli pair<long long int,int>
+#define pbi pair<bool,int>
+#define pob pop_back
+#define all(a) a.begin(),a.end()
+#define fio ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL);
+#define i64 long long int
+#define mem(x,y) memset(x,y,sizeof(x))
+#define fill(arr,b) fill(arr, arr+sizeof(arr)/sizeof(arr[0]), b)
+#define maxarr(n,arr,m) m=-1e9;for(int i=0;i<n;i++)if(arr[i]>m) m=arr[i];
+#define read freopen("input.txt","r",stdin);
+#define F first
+#define S second
+
+const int maxn = (i64)1e9+7;
+const double pi = acos(-1.0);
+
+//bool fne(const pii &a, const pii &b){return (a.F < b.F)||(a.F==b.F&&a.S<b.S);}
+//bool sne(const pii &a, const pii &b){return (a.S < b.S)||(a.S==b.S&&a.F<b.F);}
+
+class node
+{
+public:
+    int data;
+    node* parent;
+    node* left;
+    node* right;
+};
+
+//_______BST______//
+
+class bst
+{
+public:
+    node* root;
+    bst(){root=NULL;}
+    node* createNode(int data);
+    void addLchild(node* parent, node* child);
+    void addRchild(node* parent, node* child);
+    void insertNode(int data);
+    void inOrder(node* curNode);
+    void preOrder(node* curNode);
+    void postOrder(node* curNode);
+};
+
+//____create node___//
+node* bst:: createNode(int data)
+{
+    node* newNode = new node;
+    newNode->data=data;
+    newNode->parent=NULL;
+    newNode->left=NULL;
+    newNode->right=NULL;
+    return newNode;
+}
+
+//___Add left child___//
+void bst:: addLchild(node* parent,node* child)
+{
+    parent->left=child;
+    if(child!=NULL) child->parent=parent;
+    return;
+}
+
+//___Add Right child___//
+void bst:: addRchild(node* parent,node* child)
+{
+    parent->right=child;
+    if(child!=NULL) child->parent=parent;
+    return;
+}
+
+//___Insert Node___//
+
+void bst:: insertNode(int data)
+{
+    node* newNode=createNode(data);
+    if(root==NULL)
+    {
+        root=newNode;
+        return;
+    }
+    node* curNode=root;
+    node* parentNode=NULL;
+    while(curNode!=NULL)
+    {
+        parentNode=curNode;
+        if(curNode->data>data) curNode=curNode->left;
+        else curNode=curNode->right;
+    }
+    if(data<parentNode->data) addLchild(parentNode,newNode);
+    else addRchild(parentNode,newNode);
+    return;
+}
+
+void bst:: postOrder(node* curNode)
+{
+    if(curNode->left!=NULL) postOrder(curNode->left);
+    if(curNode->right!=NULL) postOrder(curNode->right);
+    printf("%d\n",curNode->data);
+    return;
+}
+int main()
+{
+    bst x;
+    int a;
+    while(scanf("%d",&a)!=EOF)
+    {
+        if(a==-1) break;
+        x.insertNode(a);
+    }
+    x.postOrder(x.root);
+    return 0;
+}
